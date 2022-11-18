@@ -18,4 +18,9 @@ public class EmployeeService {
         employeeRepository.findAll().forEach(employee -> l.add(employee));
         return l;
     }
+
+    // public void addEmployee(Employee employee)
+    // {
+    //     employeeRepository.addEmployee(employee);
+    // }
 }

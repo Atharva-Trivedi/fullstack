@@ -21,7 +21,7 @@ class ListEmployeesComponent extends Component
     {
         return (
             <div>
-                <h2 className='text-center'>Employees List</h2>
+                <h2 class='tc pa3'>Employees List</h2>
                 <div className='row'>
                     <table className='table table-bordered table-striped'>
 
