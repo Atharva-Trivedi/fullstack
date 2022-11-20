@@ -19,8 +19,16 @@ public class EmployeeService {
         return l;
     }
 
-    // public void addEmployee(Employee employee)
-    // {
-    //     employeeRepository.addEmployee(employee);
-    // }
+    public void addEmployee(Employee employee)
+    {
+        employeeRepository.save(employee);
+    }
+    public void deleteEmployee(Long id)
+    {
+        employeeRepository.deleteById(id);
+    }
+    public void updateEmployee(Employee employee)
+    {
+        employeeRepository.save(employee);
+    }
 }
