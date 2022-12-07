@@ -32,7 +32,7 @@ class ListEmployeesComponent extends Component
     {
         return (
             <div>
-                <h2 class='tc pa3'>Employees List</h2>
+                <h2 className='tc pa3'>Employees List</h2>
                 <div className='row'>
                     <nav href = 'add-employee'><div className='tc'><a href='add-employee'>Add Employee</a></div></nav>
                 </div>

@@ -13,7 +13,7 @@ class HeaderComponent extends Component {
     render() {
         return (
             <div >
-                <header class='pa2 f2 tc'>
+                <header className='pa2 f2 tc'>
                     <nav >
                         <div><a href = 'https://linkedin.com' className='navbar-brand' >Employee Management App</a></div>
                     </nav>
