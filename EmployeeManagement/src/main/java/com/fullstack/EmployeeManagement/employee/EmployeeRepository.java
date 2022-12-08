@@ -1,11 +1,14 @@
 package com.fullstack.EmployeeManagement.employee;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+// import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface EmployeeRepository extends CrudRepository<Employee,Long> {
+public interface EmployeeRepository extends JpaRepository<Employee,Long> {
 
-    // public void deleteById(Integer id);
+    public Optional<Employee> findByEmailId(String emailId);
 }

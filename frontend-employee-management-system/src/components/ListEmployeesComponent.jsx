@@ -37,6 +37,9 @@ class ListEmployeesComponent extends Component
                     <nav href = 'add-employee'><div className='tc'><a href='add-employee'>Add Employee</a></div></nav>
                 </div>
                 <div className='row'>
+                    <nav href = 'get-employee'><div className='tc'><a href='get-employee'>Get Employee</a></div></nav>
+                </div>
+                <div className='row'>
                     <table className='table table-bordered table-striped'>
 
                         <thead>

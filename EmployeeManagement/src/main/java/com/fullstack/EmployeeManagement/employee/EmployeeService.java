@@ -2,6 +2,7 @@ package com.fullstack.EmployeeManagement.employee;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,10 @@ public class EmployeeService {
         employeeRepository.findAll().forEach(employee -> l.add(employee));
         return l;
     }
-
+    public Optional<Employee> getEmployee(String emailId)
+    {
+       return employeeRepository.findByEmailId(emailId);
+    }
     public void addEmployee(Employee employee)
     {
         employeeRepository.save(employee);
