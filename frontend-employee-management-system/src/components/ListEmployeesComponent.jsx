@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 // function navigateToAddEmployee (){
 //     useNavigate('/add-employee');
 // }
 class ListEmployeesComponent extends Component
 {
+    // navigate = useNavigate();
     constructor(props)
     {
         super(props)
@@ -14,6 +15,7 @@ class ListEmployeesComponent extends Component
                 employees : []
         }
         this.addEmployee = this.addEmployee.bind(this);
+        this.editEmployee=this.editEmployee.bind(this);
         // this.navigateToAddEmployee = this.navigateToAddEmployee.bind(this);
 
     }
@@ -25,9 +27,11 @@ class ListEmployeesComponent extends Component
         });
     }
     addEmployee(){
-        this.props.history.push('/add-employee');
+        this.props.navigate('/add-employee');
     }
-    
+    editEmployee(id){
+       this.props.navigate(`/update-employee/${id}`);
+    }
     render()
     {
         return (
@@ -58,6 +62,9 @@ class ListEmployeesComponent extends Component
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
+                                        <td>
+                                            <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update</button>
+                                        </td>
                                     </tr>
                                 )
                             }
@@ -69,5 +76,9 @@ class ListEmployeesComponent extends Component
         )
     }
 }
-
+export function ListEmployeesComponentWithNavigate(props) {
+    const navigate = useNavigate();
+  
+    return <ListEmployeesComponent navigate={navigate}></ListEmployeesComponent>
+  }
 export default ListEmployeesComponent ;
