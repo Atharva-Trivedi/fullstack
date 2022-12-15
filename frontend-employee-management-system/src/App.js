@@ -4,10 +4,10 @@ import React from 'react';
 import {ListEmployeesComponentWithNavigate} from './components/ListEmployeesComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
-import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
+import { UpdateEmployeeComponentWithNavigate } from './components/UpdateEmployeeComponent';
 import {BrowserRouter as Router} from "react-router-dom";
 import {Routes, Route} from "react-router";
-import CreateEmployeeComponent from './components/CreateEmployeeComponent';
+import { CreateEmployeeComponentWithNavigate } from './components/CreateEmployeeComponent';
 function App() {
   return (
 	<div>
@@ -16,10 +16,10 @@ function App() {
 			<HeaderComponent/>
 				<div className='container'>
 					<Routes>
-						<Route path = '/add-employee'  exact element = {<CreateEmployeeComponent/>}></Route>
+						<Route path = '/add-employee'  exact element = {<CreateEmployeeComponentWithNavigate/>}></Route>
 						<Route path = '/' exact element = {<ListEmployeesComponentWithNavigate/>}> </Route>
 						<Route path = '/employees' exact element = {<ListEmployeesComponentWithNavigate/>}></Route> 
-						<Route path = '/update-employee/:id' exact element = {<UpdateEmployeeComponent/>}></Route>
+						<Route path = '/update-employee/:id' exact element = {<UpdateEmployeeComponentWithNavigate/>}></Route>
 
 					</Routes>
 				</div>

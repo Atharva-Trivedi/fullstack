@@ -40,13 +40,15 @@ public class EmployeeController
     @RequestMapping(value = "/employees/{id}",method = RequestMethod.DELETE )
     public void deleteEmployee(@PathVariable Long id)
     {
-        employeeService.deleteEmployee(id) ;
+        employeeService.deleteEmployee(id);
     }
 
     @RequestMapping(value = "/employees",method = RequestMethod.PUT)
     public void updateEmployee(@RequestBody Employee employee)
-    {
-        System.out.println("test");
+    {  
+        System.out.println(123);
+        // employee.setId(id);
+        System.out.println(employee);
         employeeService.updateEmployee(employee);
     }
 }

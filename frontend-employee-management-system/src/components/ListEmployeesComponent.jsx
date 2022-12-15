@@ -30,19 +30,20 @@ class ListEmployeesComponent extends Component
         this.props.navigate('/add-employee');
     }
     editEmployee(id){
+    //    console.log("test");
        this.props.navigate(`/update-employee/${id}`);
+    }
+    deleteEmployee(id){
+        EmployeeService.deleteEmployee(id);
+        window.location.reload();        
     }
     render()
     {
         return (
             <div>
                 <h2 className='tc pa3'>Employees List</h2>
-                <div className='row'>
-                    <nav href = 'add-employee'><div className='tc'><a href='add-employee'>Add Employee</a></div></nav>
-                </div>
-                <div className='row'>
-                    <nav href = 'get-employee'><div className='tc'><a href='get-employee'>Get Employee</a></div></nav>
-                </div>
+                <button className='btn btn-dark m-2' onClick={this.addEmployee}>Add Employee</button>
+              
                 <div className='row'>
                     <table className='table table-bordered table-striped'>
 
@@ -61,9 +62,10 @@ class ListEmployeesComponent extends Component
                                     <tr key={employee.id}>
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
-                                        <td>{employee.emailId}</td>
+                                        <td>{employee.emailId}</td> 
                                         <td>
                                             <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update</button>
+                                            <button onClick={ () => this.deleteEmployee(employee.id)} className="btn btn-danger mx-1">Delete</button>
                                         </td>
                                     </tr>
                                 )

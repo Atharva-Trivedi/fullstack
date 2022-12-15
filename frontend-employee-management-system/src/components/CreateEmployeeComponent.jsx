@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { useNavigate } from 'react-router-dom';
 import EmployeeService from '../services/EmployeeService';
 
 class CreateEmployeeComponent extends Component {
@@ -29,9 +30,11 @@ class CreateEmployeeComponent extends Component {
         console.log(this.state.firstName + "xy" + this.state.lastName);
         let employee = { firstName : this.state.firstName, lastName : this.state.lastName , emailId : this.state.emailId};
         EmployeeService.createEmployee(employee);
+        this.props.navigate('/employees');
+
     };
-    cancel= () => {
-        this.props.history.push('/employees');
+    cancel(){
+        this.props.navigate('/employees');
     }
     render() {
         return (
@@ -69,4 +72,8 @@ class CreateEmployeeComponent extends Component {
     }
 }
 
+export function CreateEmployeeComponentWithNavigate(props){
+    const navigate = useNavigate();
+    return <CreateEmployeeComponent navigate ={navigate}></CreateEmployeeComponent>
+}
 export default CreateEmployeeComponent;
