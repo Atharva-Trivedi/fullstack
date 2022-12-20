@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React from 'react';
+import { ViewEmployeeComponentWithNavigate } from './components/ViewEmployeeComponent';
 import {ListEmployeesComponentWithNavigate} from './components/ListEmployeesComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
@@ -20,7 +21,7 @@ function App() {
 						<Route path = '/' exact element = {<ListEmployeesComponentWithNavigate/>}> </Route>
 						<Route path = '/employees' exact element = {<ListEmployeesComponentWithNavigate/>}></Route> 
 						<Route path = '/update-employee/:id' exact element = {<UpdateEmployeeComponentWithNavigate/>}></Route>
-
+						<Route path = '/view-employee/:id' exact element = {<ViewEmployeeComponentWithNavigate/>}></Route>
 					</Routes>
 				</div>
 			<FooterComponent/>

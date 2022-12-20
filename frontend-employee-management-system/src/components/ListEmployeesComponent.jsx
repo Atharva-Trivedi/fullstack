@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import EmployeeService from '../services/EmployeeService';
 import { useNavigate } from "react-router-dom";
 
-// function navigateToAddEmployee (){
-//     useNavigate('/add-employee');
-// }
+
 class ListEmployeesComponent extends Component
 {
-    // navigate = useNavigate();
     constructor(props)
     {
         super(props)
@@ -16,8 +13,7 @@ class ListEmployeesComponent extends Component
         }
         this.addEmployee = this.addEmployee.bind(this);
         this.editEmployee=this.editEmployee.bind(this);
-        // this.navigateToAddEmployee = this.navigateToAddEmployee.bind(this);
-
+        this.viewEmployee=this.viewEmployee.bind(this);
     }
     
     componentDidMount()
@@ -28,14 +24,18 @@ class ListEmployeesComponent extends Component
     }
     addEmployee(){
         this.props.navigate('/add-employee');
+        window.location.reload();        
     }
     editEmployee(id){
-    //    console.log("test");
        this.props.navigate(`/update-employee/${id}`);
+       window.location.reload();            
     }
     deleteEmployee(id){
         EmployeeService.deleteEmployee(id);
         window.location.reload();        
+    }
+    viewEmployee(id){
+        this.props.navigate(`/view-employee/${id}`);
     }
     render()
     {
@@ -66,6 +66,7 @@ class ListEmployeesComponent extends Component
                                         <td>
                                             <button onClick={ () => this.editEmployee(employee.id)} className="btn btn-info">Update</button>
                                             <button onClick={ () => this.deleteEmployee(employee.id)} className="btn btn-danger mx-1">Delete</button>
+                                            <button onClick= {() => this.viewEmployee(employee.id)} className="btn btn-success ">View</button>
                                         </td>
                                     </tr>
                                 )
