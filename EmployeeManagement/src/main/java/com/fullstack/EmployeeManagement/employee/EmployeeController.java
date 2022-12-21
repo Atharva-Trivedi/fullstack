@@ -1,7 +1,6 @@
 package com.fullstack.EmployeeManagement.employee;
 
 import java.util.List;
-// import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -49,7 +48,6 @@ public class EmployeeController
     public void updateEmployee(@RequestBody Employee employee)
     {  
         System.out.println(123);
-        // employee.setId(id);
         System.out.println(employee);
         employeeService.updateEmployee(employee);
     }
